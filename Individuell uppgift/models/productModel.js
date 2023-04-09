@@ -15,7 +15,7 @@ exports.createNewProduct = (req, res) => {
   Product.create({Name, Description, Price, ImageURL})
   .then(data => res.status(201).json(data))
   .catch(() => res.status(500).json({
-    message: 'Something went wrong when creating your product!'
+    message: 'Something went wrong when creating your game!'
   }))
 
 };
@@ -29,7 +29,7 @@ exports.getProducts = (req, res) => {
     })
     .catch(() => {
         res.status(500).json({
-            message: 'Something went wrong when getting the products!'
+            message: 'Something went wrong when getting the game!'
         })
     })
 }
@@ -43,7 +43,7 @@ exports.getOneProduct = (req, res) => {
     })
     .catch(() => {
         res.status(500).json({
-            message: 'Something went wrong when getting the product!'
+            message: 'Something went wrong when getting the game!'
         })
     })
 }
@@ -55,7 +55,7 @@ exports.updateProduct = (req, res) => {
     .then(data => {
         if(!data) {
             res.status(404).json({
-                message: 'Could not find that product'
+                message: 'Could not find that game'
             })
             return
         }
@@ -63,18 +63,19 @@ exports.updateProduct = (req, res) => {
     })
     .catch(() => {
         res.status(500).json({
-            message: 'Something went wrong when updating the product'
+            message: 'Something went wrong when updating the game'
         })
     })
 }
 
+//Tar bort en Produkt
 
 exports.deleteProduct = (req, res) => {
     Product.findByIdAndDelete(req.params.id)
     .then(data => {
         if(!data) {
             res.status(404).json({
-                message: 'could not find that product'
+                message: 'could not find that gamr'
             })
             return
         }
@@ -83,7 +84,7 @@ exports.deleteProduct = (req, res) => {
     })
     .catch(() => {
         res.status(500).json({
-            message: 'Something went wrong when deleting the product'
+            message: 'Something went wrong when deleting the game'
         })
     })
 }
