@@ -15,7 +15,7 @@ exports.createNewProduct = (req, res) => {
   Product.create({Name, Description, Price, ImageURL})
   .then(data => res.status(201).json(data))
   .catch(() => res.status(500).json({
-    message: 'Something went wrong when creating your game!'
+    message: 'Something went wrong when creating your product!'
   }))
 
 };
@@ -29,7 +29,7 @@ exports.getProducts = (req, res) => {
     })
     .catch(() => {
         res.status(500).json({
-            message: 'Something went wrong when getting the game!'
+            message: 'Something went wrong when getting the product!'
         })
     })
 }
@@ -43,7 +43,7 @@ exports.getOneProduct = (req, res) => {
     })
     .catch(() => {
         res.status(500).json({
-            message: 'Something went wrong when getting the game!'
+            message: 'Something went wrong when getting the product!'
         })
     })
 }
@@ -55,7 +55,7 @@ exports.updateProduct = (req, res) => {
     .then(data => {
         if(!data) {
             res.status(404).json({
-                message: 'Could not find that game'
+                message: 'Could not find that product!'
             })
             return
         }
@@ -63,7 +63,7 @@ exports.updateProduct = (req, res) => {
     })
     .catch(() => {
         res.status(500).json({
-            message: 'Something went wrong when updating the game'
+            message: 'Something went wrong when updating the product!'
         })
     })
 }
@@ -75,7 +75,7 @@ exports.deleteProduct = (req, res) => {
     .then(data => {
         if(!data) {
             res.status(404).json({
-                message: 'could not find that gamr'
+                message: 'could not find that product!'
             })
             return
         }
@@ -84,7 +84,7 @@ exports.deleteProduct = (req, res) => {
     })
     .catch(() => {
         res.status(500).json({
-            message: 'Something went wrong when deleting the game'
+            message: 'Something went wrong when deleting the product'
         })
     })
 }
